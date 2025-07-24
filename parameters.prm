@@ -1,0 +1,115 @@
+# Listing of Parameters
+# ---------------------
+subsection Finite element system
+  # Displacement system polynomial order
+  set Polynomial degree = 2
+
+  # Gauss quadrature order
+  set Quadrature order  = 3
+end
+
+
+subsection Geometry
+  # Global refinement level
+  set Global refinement   = 5
+
+  # Global grid scaling factor
+  set Grid scale          = 1e-3
+
+  # Outer radius
+  set Outer radius        = 2.0
+
+  # Inner radius
+  set Inner radius        = 0.4
+
+  # Cortex thickness
+        set Cortex thickness                     = 0.05
+  end
+
+
+subsection Linear solver
+  # Linear solver iterations (multiples of the system matrix size)
+  # In 2-d, this value is best set at 2. In 3-d, a value of 1 work fine.
+  set Max iteration multiplier = 16
+  #16
+
+  # Linear solver residual (scaled by residual norm)
+  set Residual                 = 1e-6
+  
+  # Use static condensation and solve a 1-block system, or solve
+  # the full 3-block system using Linear Operators and the Schur
+  # complement	
+  set Use static condensation = false
+
+  # Preconditioner type
+  set Preconditioner type  = ssor
+
+  # Preconditioner relaxation value
+  set Preconditioner relaxation  = 0.65
+
+  # Type of solver used to solve the linear system
+  set Solver type              = CG
+  #Direct
+end
+
+
+subsection Material properties
+  # Poisson's ratio
+  set Poisson's ratio = 0.49
+end
+
+
+subsection Simulation parameters
+  # Growth multiplier maximum
+        set Growth multiplier maximum            =    2 
+
+  # Growth multiplier initial
+  set Growth multiplier initial = 1.0
+
+  # exponent factor
+        set exponent factor                      =    1 
+
+  # stiffness ratio
+        set stiffness ratio                      = 18 
+
+  # cortical shear modulus
+  set cortical shear modulus = 2.070
+
+  # growth factor ratio
+        set growth factor ratio                  = 9 
+
+  # subcortical growth factor
+  set subcortical growth factor = 4.07e-4
+  
+  # type of growth
+  set growth type = differential
+
+  # heaviside exponent
+  #set heaviside exponent = 30
+end
+
+
+subsection Nonlinear solver
+  # Number of Newton-Raphson iterations allowed
+  set Max iterations Newton-Raphson = 10
+
+  # Displacement error tolerance
+  set Tolerance displacement        = 1.0e-4
+
+  # Force residual tolerance
+  set Tolerance force               = 1.0e-6
+end
+
+
+subsection Time
+  # End time
+  set End time       = 100
+
+  # Time step size
+        set Time step size                       =    0.1 
+end
+
+subsection Multiprocessing
+  # Thread count
+  set threads = 1
+end
